@@ -37,3 +37,4 @@ def encode(board: chess.Board) -> torch.Tensor:
         planes[18][r][c] = 1.0
 
     return planes.unsqueeze(0) # shape: (1, 19, 8, 8)
+

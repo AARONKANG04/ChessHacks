@@ -35,3 +35,10 @@ class Evaluator(nn.Module):
         out = out.view(out.size(0), -1)
         out = self.fc(out)
         return out
+
+
+def count_parameters(model):
+    return sum(p.numel() for p in model.parameters() if p.requires_grad)
+
+model = Evaluator(in_channels=19, channels=32, n_blocks=8)
+print(f"Total parameters: {count_parameters(model):,}")
